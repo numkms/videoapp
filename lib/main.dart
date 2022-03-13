@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:videoapp/features/asset_import/presentation/cubit/asset_import_cubit.dart';
+import 'package:videoapp/features/asset_import/presentation/pages/assets_selection_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +44,13 @@ class MyApp extends StatelessWidget {
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return CupertinoButton(
-                        child: Text("Новое видео"), onPressed: () {});
+                        child: Text("Новое видео"),
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(CupertinoPageRoute(builder: (context) {
+                            return AssetsSelectionPage();
+                          }));
+                        });
                   },
                   itemCount: 1,
                 ));
